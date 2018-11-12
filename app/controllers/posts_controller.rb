@@ -2,13 +2,17 @@ class PostsController < ApplicationController
   def index
     @post_items = Post.all
   end
+  def cooking
+    @cooking_post_items = Post.baking
+  end
 
   def new
     @post = Post.new
+    3.times { @post.skills.build }
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :body))
+    @post = Post.new(params.require(:post).permit(:title, :body, skills_attributes:[:name]))
 
     respond_to do |format|
       if @post.save

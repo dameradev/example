@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_103538) do
+ActiveRecord::Schema.define(version: 2018_11_12_171554) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -30,7 +30,9 @@ ActiveRecord::Schema.define(version: 2018_11_11_103538) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.integer "topic_id"
     t.index ["slug"], name: "index_high_scores_on_slug", unique: true
+    t.index ["topic_id"], name: "index_high_scores_on_topic_id"
   end
 
   create_table "hobbies", force: :cascade do |t|
@@ -43,6 +45,22 @@ ActiveRecord::Schema.define(version: 2018_11_11_103538) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.text "main_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "subtitle"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_skills_on_post_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

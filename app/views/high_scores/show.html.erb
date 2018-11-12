@@ -10,5 +10,10 @@
   <%= @high_score.score %>
 </p>
 
+<p>
+  <strong>Type:</strong>
+  <%= @high_score.topic.title %>
+</p>
+
 <%= link_to 'Edit', edit_high_score_path(@high_score) %> |
 <%= link_to 'Back', high_scores_path %>

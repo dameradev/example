@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'post/:id', to: 'posts#show', as: 'post_show'
 
+  get 'cooking', to: 'posts#cooking'
+
   resources :high_scores
   get 'about-me' , to: 'pages#about'
   get 'contact', to:'pages#contact'

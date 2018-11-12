@@ -9,7 +9,14 @@
     <%= form.label :body %>
     <%= form.text_area :body %>
   </div>
-
+  <ul>
+  <%= form.fields_for :skills  do |skill_form|%>
+    <li>
+        <%= skill_form.label :name %>
+        <%= skill_form.text_field :name %>
+    </li>
+  <% end %>
+</ul>
   <div class="actions">
     <%= form.submit %>
   </div>
