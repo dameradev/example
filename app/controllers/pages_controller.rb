@@ -9,5 +9,7 @@ class PagesController < ApplicationController
   end
 
   def contact
+    logger.info '+++ Example +++'
+    redirect_to root_path,  notice: 'Fuck you nigga!'
   end
 end

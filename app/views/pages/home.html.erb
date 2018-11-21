@@ -1,4 +1,10 @@
-<h1>Pages#home</h1>
+<h1>Hi <%= current_user.first_name %></h1>
+<% if current_user.is_a?(OpenStruct) %>
+  <h3>Hey welcome, please register so you can get
+     the maximum out of our portfolio site.</h3>
+<% end %>
+
 <p>Find me in app/views/pages/home.html.erb</p>
+
 
 <%= @hobbies.inspect %>
